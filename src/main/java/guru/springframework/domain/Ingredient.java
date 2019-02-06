@@ -11,9 +11,19 @@ public class Ingredient {
 
     private String description;
     private BigDecimal amount;
+    @OneToOne(fetch = FetchType.EAGER)
+    private Ingredient ingredient;
 
     @ManyToOne
     private Recipe recipe;
+
+    public Ingredient getIngredient() {
+        return ingredient;
+    }
+
+    public void setIngredient(Ingredient ingredient) {
+        this.ingredient = ingredient;
+    }
 
     public String getDescription() {
         return description;
